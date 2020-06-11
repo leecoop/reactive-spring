@@ -96,8 +96,7 @@ public class FluxAndMonoTransformTest {
 
         Flux<String> stringFlux = Flux.fromIterable(Arrays.asList("A", "B", "C", "D", "E", "F")) // Flux<String>
                 .window(2) //Flux<Flux<String> -> (A,B), (C,D), (E,F)
-                .flatMap((s) ->
-                        s.map(this::convertToList).subscribeOn(parallel())) // Flux<List<String>
+                .flatMap(s -> s.map(this::convertToList).subscribeOn(parallel())) // Flux<List<String>
                 .flatMap(s -> Flux.fromIterable(s)) //Flux<String>
                 .log();
 
