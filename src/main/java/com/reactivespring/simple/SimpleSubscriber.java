@@ -1,17 +1,17 @@
-package com.reactivespring.dummy;
+package com.reactivespring.simple;
 
 import org.reactivestreams.Subscriber;
 import org.reactivestreams.Subscription;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-public class TestSubscriber implements Subscriber<String> {
+public class SimpleSubscriber implements Subscriber<String> {
 
-    private static final Logger LOGGER = LoggerFactory.getLogger(TestSubscriber.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(SimpleSubscriber.class);
 
     private int n;
 
-    public TestSubscriber(int n) {
+    public SimpleSubscriber(int n) {
         this.n = n;
     }
 

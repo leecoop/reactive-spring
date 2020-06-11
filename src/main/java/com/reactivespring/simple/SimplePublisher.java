@@ -1,4 +1,4 @@
-package com.reactivespring.dummy;
+package com.reactivespring.simple;
 
 import org.reactivestreams.Publisher;
 import org.reactivestreams.Subscriber;
@@ -9,8 +9,8 @@ import org.slf4j.LoggerFactory;
 import java.util.Arrays;
 import java.util.List;
 
-public class TestPublisher implements Publisher<String> {
-    private static final Logger LOGGER = LoggerFactory.getLogger(TestPublisher.class);
+public class SimplePublisher implements Publisher<String> {
+    private static final Logger LOGGER = LoggerFactory.getLogger(SimplePublisher.class);
 
     private static final List<String> data = Arrays.asList("A", "B", "C", "D", "E");
 
