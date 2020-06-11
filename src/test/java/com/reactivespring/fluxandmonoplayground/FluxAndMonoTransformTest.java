@@ -6,6 +6,7 @@ import reactor.test.StepVerifier;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import static reactor.core.scheduler.Schedulers.parallel;
 
@@ -120,6 +121,23 @@ public class FluxAndMonoTransformTest {
         StepVerifier.create(stringFlux)
                 .expectNextCount(12)
                 .verifyComplete();
+    }
+
+
+    @Test
+    public void streamFlatMap() {
+        List<List<String>> lists = Arrays.asList(Arrays.asList("a", "1"), Arrays.asList("b", "2"), Arrays.asList("c", "3"));
+
+        List<String> collect = lists.stream()
+                .flatMap(o -> (o).stream())
+                .peek(System.out::println)
+                .map(String::toUpperCase)
+                .peek(System.out::println)
+                .collect(Collectors.toList());
+
+        System.out.println();
+
+
     }
 
 }
